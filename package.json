@@ -1,26 +1,16 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.2.5",
-  "description": "A sample Node.js app using Express 4",
+  "name": "ably-node-heroku-test",
+  "version": "0.0.1",
   "engines": {
-    "node": "5.9.1"
+    "node": "6.1.0"
   },
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "ejs": "2.4.1",
-    "express": "4.13.3"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+    "ably": "^0.8.36",
+    "express": "4.13.3",
+    "rollbar": "^0.6.2"
+  }
 }
