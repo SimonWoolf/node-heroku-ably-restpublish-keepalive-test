@@ -29,15 +29,15 @@ function randomChoice(arr) {
 
 function publish(channel) {
   channel.publish(null, null, (err) => {
-    console.log("Publish callback, err = ", err);
     if(err) {
+      console.log("Publish err: ", err);
       report(`Publish error: ${JSON.stringify(err)}`, 'error');
     }
   });
 }
 
 function publishLotsSimultaneously(channel) {
-  const numPublishes = randomInt(1, 50);
+  const numPublishes = randomInt(1, 30);
   console.log(`Publishing ${numPublishes} times`);
   for(let i=0; i<numPublishes; i++) {
     publish(channel);
@@ -53,11 +53,11 @@ function publishLotsSimultaneouslyOccasionally(channel) {
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
+  report('Running', 'info');
 
   const realtime = new Ably.Rest({
     key: process.env.ABLY_KEY,
-    echoMessages: true,
-    log: {level: 4, handler: logHandler},
+    log: {level: 2, handler: logHandler},
     // specify hosts so that fallback functionality is disabled
     restHost: 'rest.ably.io',
   });
